@@ -9,8 +9,8 @@ class Livro extends Model
 {
     use HasFactory;
 
-    protected $table = 'LIVRO';
-    protected $primaryKey = 'COD';
+    protected $table = 'livro';
+    protected $primaryKey = 'cod';
     public $timestamps = false;
 
     protected $fillable = [
@@ -20,4 +20,24 @@ class Livro extends Model
         'ANOPUBLICACAO',
         'STATUS'
     ];
+
+    public function autor()
+    {
+        return $this->hasOne(LivroAutor::class, 'codLivro', 'cod');
+    }
+
+    public function assunto()
+    {
+        return $this->hasOne(LivroAssunto::class, 'codLivro', 'cod');
+    }
+
+    public function livroAssunto()
+    {
+        return $this->hasMany(LivroAssunto::class, 'codLivro', 'cod');
+    }
+
+    public function livroAutor()
+    {
+        return $this->hasMany(LivroAutor::class, 'codLivro', 'cod');
+    }
 }

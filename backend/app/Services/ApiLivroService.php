@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\DTO\TbLivroDTO;
 use App\Models\LivroAutor;
+use App\Models\LivroAssunto;
 use App\Repositories\ApiLivroRepository;
 use Illuminate\Support\Facades\DB;
 
@@ -39,6 +40,7 @@ class ApiLivroService {
             $livroCod = $livro->COD;
             
             $this->associarLivroAutor($livroCod, $data->autor);
+            $this->associarLivroAssunto($livroCod, $data->assunto);
 
             return $livro;
         });
@@ -54,6 +56,16 @@ class ApiLivroService {
         return LivroAutor::create($data);
     }
 
+    private function associarLivroAssunto($livroCod, $assuntoId)
+    {
+        $data = [
+            'codLivro' => $livroCod,
+            'codAssunto' => $assuntoId,
+        ];
+
+        return LivroAssunto::create($data);
+    }
+
     public function show(int $id) 
     {
         return $this->apiLivroRepository->show($id);
@@ -67,7 +79,7 @@ class ApiLivroService {
             'edicao' => $data['edicao'],
             'anoPublicacao' => $data['anoPublicacao'],
         ];
-        
+
         $this->associarLivroAutor($id, $data['autor']);
         return $this->apiLivroRepository->update($updateFields, $id);
     }

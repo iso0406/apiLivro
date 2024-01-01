@@ -61,8 +61,8 @@
         <table>
             <thead>
                 <tr>
-                    <th>Código</th>
                     <th>Titulo</th>
+                    <th>Assunto</th>
                     <th>Editora</th>
                     <th>Edição</th>
                     <th>Ano Publicaçao</th>
@@ -72,12 +72,48 @@
             <tbody>
             @foreach($generatePDF as $livroAutor)
                 <tr>
-                    <td>{{ $livroAutor['livro']['cod'] }}</td>
-                    <td>{{ $livroAutor['livro']['titulo'] }}</td>
-                    <td>{{ $livroAutor['livro']['editora'] }}</td>
-                    <td>{{ $livroAutor['livro']['edicao'] }}</td>
-                    <td>{{ $livroAutor['livro']['anoPublicacao'] }}</td>
-                    <td>{{ $livroAutor['autor']['nome'] }}</td>
+                    <td>
+                        @if(isset($livroAutor['titulo']))
+                            {{ $livroAutor['titulo'] }}
+                        @else
+                            ----
+                        @endif
+                    </td>
+                    <td>
+                        @if(isset($livroAutor['livro_assunto'][0]['assunto']['descricao']))
+                            {{ $livroAutor['livro_assunto'][0]['assunto']['descricao'] }}
+                        @else
+                            ----
+                        @endif
+                    </td>
+                    <td>
+                        @if(isset($livroAutor['editora']))
+                            {{ $livroAutor['editora'] }}
+                        @else
+                            ----
+                        @endif
+                    </td>
+                    <td>
+                        @if(isset($livroAutor['edicao']))
+                            {{ $livroAutor['edicao'] }}
+                        @else
+                            ----
+                        @endif
+                    </td>
+                    <td>
+                        @if(isset($livroAutor['anoPublicacao']))
+                            {{ $livroAutor['anoPublicacao'] }}
+                        @else
+                            ----
+                        @endif
+                    </td>
+                    <td>
+                        @if(isset($livroAutor['autor']['autor']['nome']))
+                            {{ $livroAutor['autor']['autor']['nome'] }}
+                        @else
+                            ----
+                        @endif
+                    </td>
                 </tr>
             @endforeach
             </tbody>

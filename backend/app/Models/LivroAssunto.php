@@ -9,10 +9,16 @@ class LivroAssunto extends Model
 {
     use HasFactory;
 
-    protected $table = 'TB_LIVRO_ASSUNTO';
+    protected $table = 'livroassunto';
+    public $timestamps = false;
 
     protected $fillable = [
-        'LIVRO_COD', 
-        'ASSUNTO_CODAS',
+        'codLivro', 
+        'codAssunto',
     ];
+
+    public function assunto()
+    {
+        return $this->hasOne(Assunto::class, 'codAs', 'codAssunto');
+    }
 }
