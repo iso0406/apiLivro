@@ -1,4 +1,4 @@
-# apiLivro - Adiinistração de Livros, Autor e Assunto
+# apiLivro - Administração de Livros, Autor e Assunto
 # Projeto Backend Laravel 10 (backend)
 
 ## Descrição
