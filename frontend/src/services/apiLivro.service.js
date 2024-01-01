@@ -26,6 +26,11 @@ export default class ApiLivroService {
         return axios.get(`/show/${id}`);
     }
 
+    static async atualizarLivro(params, id)
+    {
+        return axios.put(`/edit/${id}`, params);
+    }
+
     static async deleteLivro(id)
     {
         return axios.put(`/destroy/${id}`);

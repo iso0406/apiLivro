@@ -127,23 +127,31 @@
                 </div>
                 </th>
                 <th scope="col" class="border-r px-2 py-4 dark:border-neutral-500 w-1/4">
-                <div class="flex items-center">
-                    <span class="mr-2">Autor</span>
-                </div>
+                  <div class="flex items-center">
+                      <span class="mr-2">Assunto</span>
+                  </div>
                 </th>
                 <th scope="col" class="border-r px-2 py-4 dark-border-neutral-500 w-1/4">
-                <div class="flex items-center">
-                    <span class="mr-2">Data Publicação</span>
-                </div>
+                  <div class="flex items-center">
+                      <span class="mr-2">Autor</span>
+                  </div>
+                </th>
+                <th scope="col" class="border-r px-2 py-4 dark:border-neutral-500 w-1/4">
+                  <div class="flex items-center">
+                      <span class="mr-2">Data Publicação</span>
+                  </div>
                 </th>
                 <th scope="col" class="border-r px-2 py-4 dark:border-neutral-500 w-40">Ações</th>
             </tr>
           </thead>
           <tbody class="align-middle">
               <tr v-for="item in this.getBooks" :key="item.cod" class="border dark:border-neutral-500">
-                <td class="p-4">{{ item.livro && item.livro.titulo !== null ? item.livro.titulo : '----' }}</td>
-                <td class="p-4">{{ item.autor && item.autor.nome !== null ? item.autor.nome : '----' }}</td>
-                <td class="p-4">{{ item.livro && item.livro.anoPublicacao !== null ? item.livro.anoPublicacao : '----' }}</td>
+                <td class="p-4">{{ item && item.titulo !== null ? item.titulo : '----' }}</td>
+                <td class="p-4">
+                  {{ item.livro_assunto && item.livro_assunto.length > 0 && item.livro_assunto[0].assunto && item.livro_assunto[0].assunto.descricao !== null ? item.livro_assunto[0].assunto.descricao : '----' }}
+                </td>
+                <td class="p-4">{{ item.autor && item.autor.autor.nome !== null ? item.autor.autor.nome : '----' }}</td>   
+                <td class="p-4">{{ item && item.anoPublicacao !== null ? item.anoPublicacao : '----' }}</td> 
                 <td class="p-2 w-1/7 items-center justify-center">
                     <button
                     type="button"

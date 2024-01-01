@@ -98,11 +98,11 @@
                     <div>
                         <button
                         type="button"
-                        @click="addLivro()"
+                        @click="atualizar()"
                         class="flex items-center py-2 px-6 shadow-sm text-sm font-medium rounded-md text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                         style="background-color: #100f5c;"
                         >
-                        <i class="fas fa-save text-1xl mr-2"></i> Salvar
+                        <i class="fas fa-save text-1xl mr-2"></i> Atualizar
                         </button>
                     </div>
                     </div>
@@ -166,10 +166,10 @@
             const requestData = {
                 titulo: this.titulo,
                 anoPublicacao: this.anoPublicacao,
-                edicao: this.edicao,
+                edicao: parseInt(this.edicao, 10),
                 editora: this.editora,
-                autor: this.autor,
-                assunto: this.assunto,
+                autor: parseInt(this.autor, 10),
+                assunto: parseInt(this.assunto, 10),
             };
 
             const response = await ApiLivroService.atualizarLivro(requestData, this.idLivro);
