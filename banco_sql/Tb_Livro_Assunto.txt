@@ -1,0 +1,10 @@
+-- apilivros.livroassunto definition
+
+CREATE TABLE `livroassunto` (
+  `codLivro` int DEFAULT NULL,
+  `codAssunto` int DEFAULT NULL,
+  KEY `codLivro` (`codLivro`),
+  KEY `codAssunto` (`codAssunto`),
+  CONSTRAINT `livroassunto_ibfk_1` FOREIGN KEY (`codLivro`) REFERENCES `livro` (`cod`),
+  CONSTRAINT `livroassunto_ibfk_2` FOREIGN KEY (`codAssunto`) REFERENCES `assunto` (`codAs`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

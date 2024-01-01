@@ -1,0 +1,10 @@
+-- apilivros.livroautor definition
+
+CREATE TABLE `livroautor` (
+  `codLivro` int DEFAULT NULL,
+  `codAutor` int DEFAULT NULL,
+  KEY `codLivro` (`codLivro`),
+  KEY `codAutor` (`codAutor`),
+  CONSTRAINT `livroautor_ibfk_1` FOREIGN KEY (`codLivro`) REFERENCES `livro` (`cod`),
+  CONSTRAINT `livroautor_ibfk_2` FOREIGN KEY (`codAutor`) REFERENCES `autor` (`codAu`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
