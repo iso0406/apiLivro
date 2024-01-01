@@ -1,0 +1,17 @@
+version: '2'
+services:
+  acfrontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8087:8080"
+    container_name: apiGitHub
+    volumes:
+       - ./:/usr/src/app/
+       - /usr/src/app/node_modules
+    networks:
+      - api-network
+networks:
+  api-network:
+    driver: bridge
