@@ -1,2 +1,2 @@
 # apiLivro
-BackEnd e FrontEnd de uam aplicação de gerenciamento de livros
+BackEnd e FrontEnd de uma aplicação de gerenciamento de livros
