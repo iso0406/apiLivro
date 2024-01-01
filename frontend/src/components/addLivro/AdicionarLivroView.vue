@@ -147,7 +147,7 @@
           <tbody class="align-middle">
               <tr v-for="item in this.getBooks" :key="item.cod" class="border dark:border-neutral-500">
                 <td class="p-4">{{ item && item.titulo !== null ? item.titulo : '----' }}</td>
-                <td class="p-4">
+                <td class="p-4"> 
                   {{ item.livro_assunto && item.livro_assunto.length > 0 && item.livro_assunto[0].assunto && item.livro_assunto[0].assunto.descricao !== null ? item.livro_assunto[0].assunto.descricao : '----' }}
                 </td>
                 <td class="p-4">{{ item.autor && item.autor.autor.nome !== null ? item.autor.autor.nome : '----' }}</td>   
@@ -163,12 +163,12 @@
                     <div v-show="item.menuOpen" class="absolute z-10 mt-2 bg-white border border-gray-300 rounded-md shadow-lg w-220px toggleMenu">
                     <ul class="py-2">
                         <li class="px-4 py-2 hover:bg-gray-100">
-                        <button @click="edit(item.livro.cod)">
+                        <button @click="edit(item.cod)">
                             <i class="fas fa-edit"></i> Editar
                         </button>
                         </li>
                         <li class="px-4 py-2 hover:bg-gray-100">
-                        <button @click="trash(item.livro.cod)">
+                        <button @click="trash(item.cod)">
                             <i class="fas fa-trash"></i> Excluir
                         </button>
                         </li>

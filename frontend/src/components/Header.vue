@@ -13,7 +13,7 @@
       </div>
       <div class="hidden sm:block">
         <div class="flex items-center space-x-4">
-          <router-link to="/adicionarLivro" class="text-white flex items-center">
+          <router-link to="/" class="text-white flex items-center">
             <div class="text-white p-2 rounded-full">
               <i class="fas fa-book"></i>
             </div>
