@@ -33,3 +33,8 @@ docker-compose up --build
 4 - Após a execução bem-sucedida do comando, a aplicação estará disponível em:  
 http://127.0.0.1:8087/
 
+## Instruções Banco de dados
+Foi utilizado o banco de dados mysql. Mas poderá ser utilizado outro banco de sua preferência.
+Na pasta banco está as SQL para a execução do baco de dados.
+No .env configure as credenciais de sua aplicação de banco de dados.
+
