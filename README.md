@@ -9,8 +9,13 @@ Para executar o servidor backend, siga as instruções abaixo:
 
 1 - Navegue até a raiz do projeto.
 
-2 - Execute o seguinte comando para iniciar o servidor Laravel:
+2 - Execute o seguintes comandos para iniciar o servidor Laravel:
 
+- Composer para atualizar ou instalar as dependências do laravel...
+```bash
+composer install ou composer update
+```
+- Após atualização do composer, rodar na raiz do projeto
 ```bash
 php artisan serve
 ```
