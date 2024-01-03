@@ -35,6 +35,7 @@ class ApiLivroService {
     public function create(TbLivroDTO $data)
     {
         $data->status = 1;
+
         return DB::transaction(function () use ($data) {
             $livro = $this->apiLivroRepository->create(array_change_key_case($data->toArray(), CASE_UPPER));
             $livroCod = $livro->COD;

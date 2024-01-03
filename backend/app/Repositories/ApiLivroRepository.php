@@ -24,24 +24,16 @@ class ApiLivroRepository extends AbstractRepository  implements IApiLivroReposit
         return $this->tbLivro->all();
     }
 
-    /*public function listBook()
-    {
-        return $this->tbLivroAutor
-            ->with('livro', 'autor')
-            ->whereHas('livro', fn ($query) => $query->where('status', 1))
-            ->get();
-    }
-    */
-
     public function listBook()
     {
-        //return $this->tbLivro->with(['autor.autor', 'livroAssunto'])->get();
-        return $this->tbLivro->with(['autor.autor', 'livroAssunto.assunto'])->get();
+        return $this->tbLivro
+            ->with(['autor.autor', 'livroAssunto.assunto'])
+            ->where('status', '=', '1')
+            ->get();
     }
 
     public function generatePDF()
     {
-        //return $this->tbLivroAutor->with('livro', 'autor')->get();
         return $this->tbLivro->with(['autor.autor', 'livroAssunto.assunto'])->get();
     }
     
